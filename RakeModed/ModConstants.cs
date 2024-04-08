@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using JetBrains.Annotations;
+using UnityEngine;
 
 namespace RakeModed
 {
@@ -15,6 +17,7 @@ namespace RakeModed
         public static string meshFolder = registerFolder(assetsFolder + "Mesh/");
         public static string bundlesFolder = registerFolder(assetsFolder + "Bundles/");
         public static string fontFolder = registerFolder(assetsFolder + "Fonts/");
+        public static string D1 = registerFolder(Application.streamingAssetsPath);
 
         public static string registerFolder(string path)
         {

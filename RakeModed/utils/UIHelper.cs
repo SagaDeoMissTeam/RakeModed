@@ -3,6 +3,7 @@
 
 using System;
 using MelonLoader;
+using RakeModed.assetLoader__Experemental_.data;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -32,7 +33,7 @@ namespace RakeModed.utils
             transform.sizeDelta = size;
             
             Text text = obj.AddComponent<Text>();
-            text.font = Resources.GetBuiltinResource<Font>("Arial.ttf");
+            text.font = AssetData.BUNDLES["font"].obj.LoadAsset<Font>("MonaspaceNeon-SemiWideBold");
             text.text = message;
             text.fontSize = fontSize;
             text.lineSpacing = lineSpacing;
@@ -70,6 +71,7 @@ namespace RakeModed.utils
             image.color = color;
             image.material = material;
             image.preserveAspect = preserveAspect;
+            image.type = Image.Type.Sliced;
             
 
             return obj;
@@ -118,21 +120,44 @@ namespace RakeModed.utils
         }
         
         /*
-        ------------------------------BUTTON------------------------------
+        ------------------------------SLIDER------------------------------
         */  
         public static GameObject createSlider(string name, Vector2 pos, Vector2 size, Sprite sourceImage, Color color, Material material, bool preserveAspect, 
-            bool interactable, Selectable.Transition transition, Navigation navigation, Button.ButtonClickedEvent func)
+            bool interactable, Selectable.Transition transition, Navigation navigation, UnityAction<float> func)
         {
             GameObject obj = createImage(name, pos, size, sourceImage, color, material, preserveAspect);
-            Button button = obj.AddComponent<Button>();
+            Slider slider = obj.AddComponent<Slider>();
 
-            button.interactable = interactable;
-            button.transition = transition;
-            button.navigation = navigation;
-            button.onClick = func;
+            
+            slider.interactable = interactable;
+            slider.transition = transition;
+            slider.navigation = navigation;
+
+            GameObject backGround = createImage("backGround", new Vector2(0, 0), new Vector2(0, 0), Color.gray);
+            addObjectToParent(backGround, obj);
+            GameObject fill = createImage("fill", new Vector2(0, 0), new Vector2(0, 0), Color.white);
+            addObjectToParent(fill, obj);
+            GameObject Handle = createImage("Handle", new Vector2(0, 0), new Vector2(0, 0), Color.white);
+            addObjectToParent(Handle, obj);
+
+            slider.fillRect = fill.GetComponent<RectTransform>();
+            slider.handleRect = Handle.GetComponent<RectTransform>();
+
+            slider.direction = Slider.Direction.LeftToRight;
+            slider.minValue = 0f;
+            slider.maxValue = 1f;
+            slider.wholeNumbers = false;
+            
+            slider.onValueChanged.AddListener(func);
+            
             
             return obj;
         }
+        
+        /*
+        ------------------------------BUTTON------------------------------
+        */  
+        
             
         public static GameObject createCanvasRenderer()
         {

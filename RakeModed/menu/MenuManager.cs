@@ -135,7 +135,7 @@ namespace RakeModed.menu
                 Selectable.Transition.ColorTint, Navigation.defaultNavigation, (() => {}));
             UIHelper.addObjectToParent(button, backGround);
             
-            childObject = UIHelper.createText("Text", new Vector2(0,0), new Vector2(0,0),
+            childObject = UIHelper.createText("Text", new Vector2(0,0), new Vector2(160,30),
                 "Host Server",
                 20, 1, true, TextAnchor.MiddleCenter, Color.black);
             rectTransform = childObject.GetComponent<RectTransform>();
@@ -178,7 +178,7 @@ namespace RakeModed.menu
             rectTransform.pivot = new Vector2(0, 0.5f);
             UIHelper.addObjectToParent(childObject, obj);
             
-            childObject = UIHelper.createText("GameVersion", new Vector2(6.5f, 43.5f), new Vector2(233.5f, 26f),
+            childObject = UIHelper.createText("GameVersion", new Vector2(6.5f, 43.5f), new Vector2(300f, 26f),
                 "Version " + ModConstants.GAME_VERSION,
                 20, 1, true, TextAnchor.MiddleLeft, Color.white);
             rectTransform = childObject.GetComponent<RectTransform>();
@@ -187,6 +187,8 @@ namespace RakeModed.menu
             rectTransform.anchorMax = new Vector2(0, 0);
             rectTransform.pivot = new Vector2(0, 0.5f);
             UIHelper.addObjectToParent(childObject, obj);     
+            
+            
             
             return obj;
         }

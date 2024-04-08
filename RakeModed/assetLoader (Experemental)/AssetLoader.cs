@@ -16,7 +16,8 @@ namespace RakeModed.assetLoader__Experemental_
         
         protected IEnumerator Start()
         {
-            MelonLogger.Msg("Start load Assets");
+            MelonLogger.Msg("YES");
+
             AssetData.reload();
             
             MelonLogger.Msg("Load BUNDLES");
@@ -24,10 +25,7 @@ namespace RakeModed.assetLoader__Experemental_
             
             foreach (var file in files)
             {
-                if (IsAssetBundleFile(file))
-                {
-                    yield return loadAssetBundles(file);
-                }
+                loadPackage(file);
             }
             
             MelonLogger.Msg("Load TEXTURES");
@@ -66,6 +64,23 @@ namespace RakeModed.assetLoader__Experemental_
             sendStatistic();
         }
 
+        public void loadPackage(string file)
+        {
+            AssetBundle bundle = AssetBundle.CreateFromMemoryImmediate(File.ReadAllBytes(file));
+            
+
+            
+            if(bundle == null)
+            {
+                MelonLogger.Error("NULL");
+            }
+            
+            SDMAsset<AssetBundle> asset = new SDMAsset<AssetBundle>(Path.GetFileName(file), bundle);
+            AssetData.BUNDLES.Add(asset.name, asset);
+            MelonLogger.Msg($"Loaded: {asset.name}.assetbundle");
+            
+        }
+        
         private IEnumerator loadFont(string filePath)
         {
             string path = "file://" + filePath;
@@ -89,36 +104,6 @@ namespace RakeModed.assetLoader__Experemental_
                 font.RequestCharactersInTexture("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890");
                 
                 MelonLogger.Msg($"Loaded: {Path.GetFileName(filePath)}");
-            }
-        }
-        
-        private IEnumerator loadAssetBundles(string filePath)
-        {
-            string path = "file://" + filePath;
-
-
-            WWW www = new WWW(path);
-
-            yield return www;
-
-            try
-            {
-                if (www.error != null)
-                {
-                    MelonLogger.Error("Error load: " + www.error);
-                }
-                else
-                {
-                    SDMAsset<AssetBundle> asset =
-                        new SDMAsset<AssetBundle>(Path.GetFileName(filePath), www.assetBundle);
-                    AssetData.BUNDLES.Add(asset.name, asset);
-                    MelonLogger.Msg($"Loaded: {asset.name}");
-                }
-
-            }
-            catch (Exception e)
-            {
-                MelonLogger.Error(e);
             }
         }
         
