@@ -24,14 +24,20 @@ namespace RakeModed
         public override void OnInitializeMelon()
         {
             HarmonyInstance.PatchAll(typeof(SDMRake));
+            
+            ModConstants.createFolders();
         }
         
         public override void OnLateInitializeMelon() // Runs after OnApplicationStart.
         {
-            
-            SDMMainMenu.init();
+            SDMInitMainScene.init();
             MelonLogger.Msg("OnApplicationLateStart");
-            
+        }
+        
+        
+        public override void OnSceneWasInitialized(int buildindex, string sceneName) // Runs when a Scene has Initialized and is passed the Scene's Build Index and Name.
+        {
+            MelonLogger.Msg("OnSceneWasInitialized: " + buildindex.ToString() + " | " + sceneName);
         }
     }
 }

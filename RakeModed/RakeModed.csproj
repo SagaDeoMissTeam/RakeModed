@@ -31,13 +31,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="assetLoader (Experemental)\AssetConverter.cs" />
     <Compile Include="assetLoader (Experemental)\AssetLoader.cs" />
+    <Compile Include="assetLoader (Experemental)\data\SDMAsset.cs" />
     <Compile Include="assetLoader (Experemental)\data\AssetData.cs" />
+    <Compile Include="events\GlobalEvents.cs" />
+    <Compile Include="events\LevelEvents.cs" />
     <Compile Include="SDMRake.cs" />
     <Compile Include="menu\MenuManager.cs" />
-    <Compile Include="menu\SDMMainMenu.cs" />
+    <Compile Include="menu\SDMInitMainScene.cs" />
     <Compile Include="ModConstants.cs" />
-    <Compile Include="plugins\B83.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\UIHelper.cs" />
   </ItemGroup>
