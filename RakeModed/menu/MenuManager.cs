@@ -52,6 +52,11 @@ namespace RakeModed.menu
                 // createMainMenu();
             }
         }
+
+        public void loadDevLobby()
+        {
+            UnityEngine.Application.LoadLevel(2);
+        }
         
         public void onAssetsLoaded()
         {
@@ -66,7 +71,6 @@ namespace RakeModed.menu
             GameObject obj = UIHelper.createCanvas();
             obj.name = "SDMMenu";
             obj.layer = UnityEngine.LayerMask.NameToLayer("UI");
-            
             
             GameObject MainBackGround = UIHelper.createImage("MainScreenBackGround", new Vector2(0,0), new Vector2(0, 0), Color.black);
             RectTransform rectTransform = MainBackGround.GetComponent<RectTransform>();
@@ -143,6 +147,21 @@ namespace RakeModed.menu
             rectTransform.anchorMin = new Vector2(0, 0);
             rectTransform.anchorMax = new Vector2(1, 1);
             rectTransform.pivot = new Vector2(0.5f, 0.5f);
+            UIHelper.addObjectToParent(childObject, button);                 
+            
+            button = UIHelper.createButton("DEV_BUTTON", new Vector2(0, 109f), new Vector2(160, 30),
+                Resources.Load<Sprite>("unity_builtin_extra/UISprite"), Color.white, null, false, true,
+                Selectable.Transition.ColorTint, Navigation.defaultNavigation, (() => loadDevLobby()));
+            UIHelper.addObjectToParent(button, backGround);
+            
+            childObject = UIHelper.createText("Text", new Vector2(0,0), new Vector2(160,30),
+                "DEV_TEST",
+                20, 1, true, TextAnchor.MiddleCenter, Color.black);
+            rectTransform = childObject.GetComponent<RectTransform>();
+            rectTransform.localScale = new Vector3(1, 1, 1);
+            rectTransform.anchorMin = new Vector2(0, 0);
+            rectTransform.anchorMax = new Vector2(1, 1);
+            rectTransform.pivot = new Vector2(0.5f, 0.5f);
             UIHelper.addObjectToParent(childObject, button);     
             
             
@@ -158,7 +177,8 @@ namespace RakeModed.menu
             
             
             
-
+            
+            
             childObject = UIHelper.createRawImage("SDMLogo", new Vector2(226.6f, -7.5f), new Vector2(82, 82),
                 AssetData.TEXTURES["sdm_logo.png"].obj);
             rectTransform = childObject.GetComponent<RectTransform>();
@@ -167,8 +187,8 @@ namespace RakeModed.menu
             rectTransform.anchorMax = new Vector2(0, 1);
             rectTransform.pivot = new Vector2(0, 1);
             UIHelper.addObjectToParent(childObject, obj);
-
-            childObject = UIHelper.createText("GameInfo", new Vector2(6.5f, 15f), new Vector2(363, 29),
+            
+            childObject = UIHelper.createText("GameInfo", new Vector2(6.5f, 15f), new Vector2(450, 29),
                 "Rake Multiplayer Moded by Sixik",
                 20, 1, true, TextAnchor.MiddleLeft, Color.white);
             rectTransform = childObject.GetComponent<RectTransform>();

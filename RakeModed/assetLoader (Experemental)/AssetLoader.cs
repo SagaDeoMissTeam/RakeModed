@@ -6,6 +6,7 @@ using System.Text;
 using MelonLoader;
 using RakeModed.assetLoader__Experemental_.data;
 using RakeModed.events;
+using RakeModed.utils;
 using UnityEngine;
 
 namespace RakeModed.assetLoader__Experemental_
@@ -78,6 +79,11 @@ namespace RakeModed.assetLoader__Experemental_
             SDMAsset<AssetBundle> asset = new SDMAsset<AssetBundle>(Path.GetFileName(file), bundle);
             AssetData.BUNDLES.Add(asset.name, asset);
             MelonLogger.Msg($"Loaded: {asset.name}.assetbundle");
+
+            if (asset.name == "ui")
+            {
+                UIHelperEXP.bundle = AssetData.BUNDLES["ui"].obj;
+            }
             
         }
         

@@ -37,12 +37,14 @@
     <Compile Include="assetLoader (Experemental)\data\AssetData.cs" />
     <Compile Include="events\GlobalEvents.cs" />
     <Compile Include="events\LevelEvents.cs" />
+    <Compile Include="network\TestNetwork.cs" />
     <Compile Include="SDMRake.cs" />
     <Compile Include="menu\MenuManager.cs" />
     <Compile Include="menu\SDMInitMainScene.cs" />
     <Compile Include="ModConstants.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="utils\UIHelper.cs" />
+    <Compile Include="utils\UIHelperEXP.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="mixin\" />
