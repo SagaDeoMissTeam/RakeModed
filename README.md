@@ -10,7 +10,7 @@ At the beginning of the journey, I will use **Melon Loader** to upgrade the game
 - At the moment it is a resource loader (To modify the game's resources)
 - UI Manager (Makes it easier to create a graphical interface)
 
-##How to try the mod?
+## How to try the mod?
 
 - Install Melon Loader 5.7 x86
 - Download the mod
