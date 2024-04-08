@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34202.233
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RakeModed", "RakeModed\RakeModed.csproj", "{8849D549-E50F-470A-89C6-43326F8452D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8849D549-E50F-470A-89C6-43326F8452D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8849D549-E50F-470A-89C6-43326F8452D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8849D549-E50F-470A-89C6-43326F8452D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8849D549-E50F-470A-89C6-43326F8452D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {73B062B5-EF77-4C76-BBB0-771EF7017B26}
+	EndGlobalSection
+EndGlobal
