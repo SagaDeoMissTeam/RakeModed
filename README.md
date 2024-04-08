@@ -7,6 +7,7 @@ This repository contains files of the modified version of the 2015 Rake game. I'
 At the beginning of the journey, I will use **Melon Loader** to upgrade the game. But in the future, if the project is more popular, I will transfer it to a full-fledged unity project.
 
 ## What does this mod add?
+- Asset Bundle Loader
 - At the moment it is a resource loader (To modify the game's resources)
 - UI Manager (Makes it easier to create a graphical interface)
 
