@@ -13,6 +13,6 @@ At the beginning of the journey, I will use **Melon Loader** to upgrade the game
 
 ## How to try the mod?
 
-- Install Melon Loader 5.7 x86
+- Install Melon Loader 4.0 x86
 - Download the mod
 - Transfer the contents to the game folder (*Rake Multiplayer*)
